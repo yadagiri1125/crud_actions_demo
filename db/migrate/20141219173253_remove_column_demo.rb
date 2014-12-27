@@ -5,4 +5,4 @@ class RemoveColumnDemo < ActiveRecord::Migration
  def down
   	add_column :products, :part_number, :string
   end
-ends
+end

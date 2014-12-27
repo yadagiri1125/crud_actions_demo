@@ -19,26 +19,26 @@ class PostsController < ApplicationController
    def create
        @post = Post.new(params[:post])
        @post.save
-       @posts = Post.all
-       render :index
+       render_index
    end
 
    def update
 	   @post = Post.find(params[:id])	
 	   @post.update_attributes(params[:post])
-	   @posts = Post.all
-	   render :index   	
+	   render_index
    end
   
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    @posts = Post.all
-    render :index
+    render_index
   end
 
 private
 
-
+def render_index
+ @posts = Post.all
+ render :index
+end
 
 end
