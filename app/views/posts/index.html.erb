@@ -1,0 +1,14 @@
+<h1>Listing all Posts </h1>
+<div id='listing_posts'>
+    <ul>
+      <% @posts.each do |post| %>
+	      <% unless post.name.nil? || post.description.nil? %>
+	        <li> <%= post.name  + ' a ' + post.description %> </li> 
+	        <%= link_to 'Show', post %>
+	        <%= link_to 'Edit', edit_post_path(post) %>
+	        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+	      <% end %>
+      <% end %>
+    </ul>
+</div>
+<%= link_to 'New Post', new_post_path %>
